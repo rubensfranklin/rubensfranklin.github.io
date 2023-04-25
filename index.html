@@ -1,7 +1,39 @@
-<pre>
-  <code>
-    // Seu código aqui
-  </code>
-</pre>
-<button class="copy-code">Copiar código</button>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Copiar código</title>
+    <style>
+      .copy-code {
+        background-color: #4CAF50; /* Cor de fundo do botão */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
+      <code>
+        // Seu código aqui
+      </code>
+    </pre>
+    <button class="copy-code">Copiar código</button>
+    <script>
+      const copyCodeBtns = document.querySelectorAll('.copy-code');
+      copyCodeBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const code = btn.previousElementSibling.textContent.trim(); // Seleciona o código do elemento irmão anterior
+          navigator.clipboard.writeText(code); // Copia o código para a área de transferência
+          alert('Código copiado com sucesso!'); // Exibe uma mensagem de sucesso
+        });
+      });
+    </script>
+  </body>
+</html>
