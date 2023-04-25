@@ -20,6 +20,11 @@
         top: 0;
         left: 0;
         width: 100%;
+        z-index: -1; /* Coloca a barra superior atrás do bloco de código */
+      }
+      pre code {
+        position: relative;
+        z-index: 0;
       }
       .copy-code {
         background-color: #4CAF50; /* Cor de fundo do botão */
@@ -38,10 +43,6 @@
         transform: translateY(-50%);
         z-index: 1;
       }
-      pre code {
-        position: relative;
-        z-index: 0;
-      }
     </style>
   </head>
   <body>
@@ -49,8 +50,8 @@
       <code>
         // Seu código aqui
       </code>
-      <button class="copy-code">Copiar código</button>
     </pre>
+    <button class="copy-code">Copiar código</button>
     <script>
       const copyCodeBtns = document.querySelectorAll('.copy-code');
       copyCodeBtns.forEach((btn) => {
